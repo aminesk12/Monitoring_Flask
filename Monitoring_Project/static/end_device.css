@@ -1,0 +1,61 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 170vh;
+}
+
+header {
+    color: #333;
+}
+
+table {
+    width: 40%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    overflow-y: auto; /* Add this line to enable vertical scrolling */
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+h1, h2 {
+    color: #333;
+    margin-top: 20px;
+}
+
+table + h2 {
+    margin-top: 40px;
+}
+
+/* Additional styles for the second table */
+table + h2 + table {
+    margin-top: 20px;
+}
+
+/* Add styles for the second table headers and rows */
+table + h2 + table th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+table + h2 + table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}

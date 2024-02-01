@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='admin_dashboard.css') }}">
+</head>
+<body>
+
+    <h1>Welcome Admin!</h1>
+
+    <ul>
+        {% for option in menu_options %}
+            {% set endpoint_name = option|lower|replace(' ', '_') %}
+            <li><a href="{{ url_for(endpoint_name) }}">{{ option }}</a></li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>

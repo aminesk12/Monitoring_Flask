@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Plot</title>
+</head>
+<body>
+    <h1>Temperature Chart for {{ city }}</h1>
+    
+    <!-- Display the Matplotlib line chart -->
+    <img src="data:image/png;base64,{{ plot_data }}" alt="Temperature Chart">
+
+</body>
+</html>

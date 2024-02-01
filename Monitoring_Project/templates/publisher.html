@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert IoT Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='publisher.css') }}">
+</head>
+<body>
+    <h1>Insert IoT Device</h1>
+    <form method="post" action="/insert_data">
+        <label for="ip">Adresse IP:</label>
+        <input type="text" name="ip" required><br>
+
+        <label for="name">Name:</label>
+        <input type="text" name="name" required><br>
+
+        <label for="latitude">Latitude:</label>
+        <input type="number" name="latitude" required><br>
+
+        <label for="longitude">Longitude:</label>
+        <input type="number" name="longitude" required><br>
+
+        <button type="submit">Save Iot</button>
+    </form>
+</body>
+</html>

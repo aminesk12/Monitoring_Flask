@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lister Clients</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='lister.css') }}">
+</head>
+<body>
+    <header>
+    <h1>Weather List</h1>
+    </header>
+    <table>
+        <thead>
+            <tr>
+                <th>City</th>
+                <th>Temperature</th>
+                <th>Longitude</th>
+                <th>Latitude</th>
+                <th>Date</th>
+                <th>Weather</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for client in client_list %}
+                <tr>
+                    <td>{{ client.city }}</td>
+                    <td>{{ client.temperature }} °C</td>
+                    <td>{{ client.longtitude }}</td>
+                    <td>{{ client.latitude }}</td>
+                    <td>{{ client.Date }}</td>
+                    <td><button class="weather-button" onclick="getWeather('{{ client.city }}')">Get Weather</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+    <h1>IOT Devices List</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>IOT IP</th>
+                <th>IOT Name</th>
+                <th>Latitude</th>
+                <th>Longitude</th>
+                <th>Data</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for iot_device in iot_list %}
+                <tr>
+                    <td>{{ iot_device.ip }}</td>
+                    <td>{{ iot_device.name }}</td>
+                    <td>{{ iot_device.latitude }}</td>
+                    <td>{{ iot_device.longitude }}</td>
+                    <td><button class="weather-button" onclick="getIotData('{{ iot_device.ip }}')">Get Iot Data</button></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+<script>
+    function getWeather(city) {
+        window.location.href = `/get_weather_data/${city}`;
+    }
+    function getIotData(ip) {
+        window.location.href = `/get_iot_data/${ip}`;
+    }
+</script>
+
+
+</body>
+</html>

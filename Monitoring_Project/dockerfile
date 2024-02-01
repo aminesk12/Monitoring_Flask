@@ -1,0 +1,19 @@
+FROM python
+
+# Allow statements and log messages to immediately appear in the Knative logs
+ENV PYTHONUNBUFFERED True
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the local code to the container image.
+COPY . /app
+
+# Install dependencies
+RUN pip install -r ./requirements.txt
+
+# Expose the port the app runs on
+EXPOSE 8080
+
+# Run the application
+CMD ["python3", "main.py"]

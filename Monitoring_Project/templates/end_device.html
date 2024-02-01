@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled HTML</title>
+    <link rel="stylesheet" href="/static/end_device.css"> <!-- Make sure to adjust the path if needed -->
+</head>
+<body>
+    <h1>End Devices</h1>
+
+    <table border="1">
+        <tr>
+            <th>Device ID</th>
+            <th>Memory Size</th>
+            <th>Memory Load</th>
+        </tr>
+        {% for device in end_device_data %}
+        <tr>
+            <td>{{ device.Device_id }}</td>
+            <td>{{ device.memory_size }} KBytes</td>
+            <td>{{ device.memory_load }} KBytes</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>CPU Load Details</h2>
+
+    <table border="1">
+        <tr>
+            <th>Process Number</th>
+            <th>CPU Load</th>
+        </tr>
+        {% for device in end_device_data %}
+            {% for cpu_load in device.cpu_load_details %}
+                <tr>
+                    <td>{{ cpu_load["Process Number"] }}</td>
+                    <td>{{ cpu_load["CPU Load"] }}</td>
+                </tr>
+            {% endfor %}
+        {% endfor %}
+    </table>
+</body>
+</html>

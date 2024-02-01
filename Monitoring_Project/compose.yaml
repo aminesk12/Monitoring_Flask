@@ -1,0 +1,23 @@
+version: "3"
+services:
+  backend:
+    container_name: flask
+    build: 
+      context: .
+    ports:
+      - 80:8080
+    depends_on:
+      - mongodb
+    volumes:
+      - ./:/Monitoring_Project
+
+  mongodb:
+    image: mongo
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    ports:
+      - 27017:27017
+    volumes:
+      - ./mongodb/init.js:/docker-entrypoint-initdb.d/init.js

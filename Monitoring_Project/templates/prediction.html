@@ -1,0 +1,35 @@
+<!-- templates/prediction.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='prediction.css') }}">
+</head>
+<body>
+    <h1>Weather Prediction</h1>
+    <form method="POST" action="{{ url_for('prediction') }}">
+        <label for="latitude">Latitude:</label>
+        <input type="text" name="latitude" id="latitude" required>
+
+        <label for="longitude">Longitude:</label>
+        <input type="text" name="longitude" id="longitude" required>
+
+        <button type="submit">Get Prediction</button>
+    </form>
+
+    {% if html_table %}
+        {{ html_table | safe }}
+    {% endif %}
+
+    {% if plot_data %}
+        <div class="chart-container">
+            <img src="data:image/png;base64,{{ plot_data }}" alt="Temperature Chart">
+        </div>
+    {% endif %}
+
+    <a href="{{ url_for('dashboard') }}" class="dashboard-link">Back to Dashboard</a>
+</body>
+</html>
